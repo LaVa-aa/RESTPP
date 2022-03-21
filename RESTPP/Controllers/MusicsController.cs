@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using RESTPP.Managers;
+using RESTPP.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -12,11 +14,13 @@ namespace RESTPP.Controllers
     [ApiController]
     public class MusicsController : ControllerBase
     {
+        private readonly MusicsManager manager = new MusicsManager();
+
         // GET: api/<MusicsController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Music> Get()
         {
-            return new string[] { "value1", "value2" };
+            return manager.GetAll();
         }
 
         // GET api/<MusicsController>/5

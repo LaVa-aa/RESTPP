@@ -13,13 +13,13 @@ namespace RESTPP.Managers
         private static readonly List<Music> data = new List<Music>
         {
             new Music {Id = nextId++, Title = "first", Artist = "la", PublishingYear = 1369},
-            new Music {Id = nextId++, Title = "first", Artist = "la", PublishingYear = 1369},
+            new Music {Id = nextId++, Title = "second", Artist = "ob", PublishingYear = 1999},
 
         };
-
+        
         public IEnumerable<Music> GetAll()
         {
-
+            return new List<Music>(data);
         }
     }
 }
