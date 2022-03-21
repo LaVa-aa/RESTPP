@@ -27,14 +27,22 @@ namespace RESTPP.Managers.Tests
             IEnumerable<Music> musics = manager.GetAll("first");
             foreach (Music e in musics)
             {
-                Assert.IsTrue(e.Title == "first");
+                Assert.AreEqual(e.Title, "first");
             }
         }
 
         [TestMethod()]
         public void AddTest()
         {
-            Assert.Fail();
+            
+            int defaultId = 0;
+
+            Music music = new Music(defaultId, "kunstner", "sang", 1980);
+            Music addResult = manager.Add(music);
+            int newId = addResult.Id;
+
+            Assert.AreNotEqual(defaultId, newId);
+           
         }
 
         [TestMethod()]
