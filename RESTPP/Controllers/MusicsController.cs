@@ -32,8 +32,9 @@ namespace RESTPP.Controllers
 
         // POST api/<MusicsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Music Post([FromBody] Music value)
         {
+            return manager.Add(value);
         }
 
         // PUT api/<MusicsController>/5
@@ -44,8 +45,9 @@ namespace RESTPP.Controllers
 
         // DELETE api/<MusicsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public Music Delete(int id)
         {
+            return manager.Delete(id);
         }
     }
 }

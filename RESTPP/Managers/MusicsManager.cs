@@ -34,5 +34,18 @@ namespace RESTPP.Managers
 
             return musics;
         }
+        public Music Add(Music newMusic)
+        {
+            newMusic.Id = nextId++;
+            data.Add(newMusic);
+            return newMusic;
+        }
+        public Music Delete(int id)
+        {
+            Music music = data.Find(music1 => music1.Id == id);
+            if (music == null) return null;
+            data.Remove(music);
+            return music;
+        }
     }
 }
