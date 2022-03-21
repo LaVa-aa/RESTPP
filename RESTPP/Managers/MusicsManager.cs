@@ -16,10 +16,23 @@ namespace RESTPP.Managers
             new Music {Id = nextId++, Title = "second", Artist = "ob", PublishingYear = 1999},
 
         };
-        
-        public IEnumerable<Music> GetAll()
+
+        public IEnumerable<Music> GetAll(string title = null, string artist = null)
         {
-            return new List<Music>(data);
+           // return new List<Music>(data);
+
+            List<Music> musics = new List<Music>(data);
+            if (title != null)
+            {
+                musics = musics.FindAll(music => music.Title != null && music.Title.StartsWith(title));
+            }
+
+            if (artist != null)
+            {
+                musics = musics.FindAll(music => music.Artist != null && music.Artist.StartsWith(artist));
+            }
+
+            return musics;
         }
     }
 }

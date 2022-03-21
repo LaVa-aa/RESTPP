@@ -18,9 +18,9 @@ namespace RESTPP.Controllers
 
         // GET: api/<MusicsController>
         [HttpGet]
-        public IEnumerable<Music> Get()
+        public IEnumerable<Music> Get([FromQuery] string title, [FromQuery] string artist)
         {
-            return manager.GetAll();
+            return manager.GetAll(title, artist);
         }
 
         // GET api/<MusicsController>/5
