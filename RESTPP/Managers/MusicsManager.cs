@@ -47,5 +47,15 @@ namespace RESTPP.Managers
             data.Remove(music);
             return music;
         }
+
+        public Music Update(int id, Music update)
+        {
+            Music music = data.Find(music1 => music1.Id == id);
+            if (music == null) return null;
+            music.Title = update.Title;
+            music.Artist = update.Artist;
+            music.PublishingYear = update.PublishingYear;
+            return music;
+        }
     }
 }

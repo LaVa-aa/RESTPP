@@ -39,8 +39,9 @@ namespace RESTPP.Controllers
 
         // PUT api/<MusicsController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public Music Put(int id, [FromBody] Music value)
         {
+            return manager.Update(id, value);
         }
 
         // DELETE api/<MusicsController>/5
